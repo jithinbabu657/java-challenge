@@ -79,6 +79,20 @@ public class ApiDemoApplicationTests {
                                 "}")).andExpect(status().isOk());
     }
 
+    @Test
+    @ExpectedDataSet("200_save_expected.yml")
+    public void test_200_saveEmployee() throws Exception {
+        mockMvc.perform(
+                post(GET_EMPLOYEE_ENDPOINT)
+                        .contentType("application/json")
+                        .content("{\n" +
+                                "  \"department\": \"SE2\",\n" +
+                                "  \"id\": 1,\n" +
+                                "  \"name\": \"JITHIN\",\n" +
+                                "  \"salary\": 1000\n" +
+                                "}")).andExpect(status().isOk());
+    }
+
     private void assertSameJson(String response, String filePath) throws Exception {
         String expected = new String(Files.readAllBytes(Paths.get(filePath)));
         JSONAssert.assertEquals(expected, response, true);
