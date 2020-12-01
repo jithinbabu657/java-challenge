@@ -4,12 +4,13 @@ import jp.co.axa.apidemo.entities.Employee;
 import jp.co.axa.apidemo.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import springfox.documentation.annotations.Cacheable;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeeRepository employeeRepository;
@@ -18,21 +19,23 @@ public class EmployeeServiceImpl implements EmployeeService{
         this.employeeRepository = employeeRepository;
     }
 
+    @Cacheable("retrieveEmployees")
     public List<Employee> retrieveEmployees() {
         List<Employee> employees = employeeRepository.findAll();
         return employees;
     }
 
+    @Cacheable("getEmployee")
     public Employee getEmployee(Long employeeId) {
         Optional<Employee> optEmp = employeeRepository.findById(employeeId);
         return optEmp.get();
     }
 
-    public void saveEmployee(Employee employee){
+    public void saveEmployee(Employee employee) {
         employeeRepository.save(employee);
     }
 
-    public void deleteEmployee(Long employeeId){
+    public void deleteEmployee(Long employeeId) {
         employeeRepository.deleteById(employeeId);
     }
 
