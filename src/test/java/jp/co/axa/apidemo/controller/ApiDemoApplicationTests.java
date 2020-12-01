@@ -2,7 +2,10 @@ package jp.co.axa.apidemo.controller;
 
 import com.github.database.rider.core.api.dataset.DataSet;
 import com.github.database.rider.core.api.dataset.ExpectedDataSet;
+import com.github.database.rider.spring.api.DBRider;
+import com.google.common.net.HttpHeaders;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -11,8 +14,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import com.github.database.rider.spring.api.DBRider;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -33,8 +36,12 @@ public class ApiDemoApplicationTests {
     @Autowired
     private WebApplicationContext wac;
 
-    @Autowired
     private MockMvc mockMvc;
+
+    @Before
+    public void setup(){
+        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+    }
 
     @Test
     @DataSet("200_init.yml")
