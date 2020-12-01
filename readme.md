@@ -43,6 +43,18 @@ Application (with the embedded H2 database) is ready to be used ! You can access
 - Is the application running as expected
 - No performance issues
 
+#### Step for execution in local
+- Clone the respository to your workspace.
+- Execute 'mvn spring-boot:run'
+- Go to the Swagger UI : http://localhost:8080/swagger-ui.html
+- Click on /authenticate api to generate the JWT token.
+- Click on Authorize button on the right top of the page to add the JWT token.
+- Add the JWT token in the format "Bearer <JWT Token>"
+- Rest of the api can be tested by clicking on "Try out!"
+
+####Execute test case
+- The test cases can be executed either individually or by executing `mvn package` .
+
 #### Your experience in Java
 
 Please let us know more about your Java experience in a few sentences. For example:
