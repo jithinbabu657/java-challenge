@@ -26,6 +26,11 @@ public class AuthController {
     @Autowired
     private JwtUtil jwtTokenUtil;
 
+    /**
+     * @param authenticationRequest
+     * @return Returns the JWT token
+     * @throws Exception
+     */
     @PostMapping(value = "/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
         try {

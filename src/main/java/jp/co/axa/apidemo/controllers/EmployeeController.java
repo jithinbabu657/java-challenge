@@ -23,29 +23,46 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+    /**
+     * @return List of Employee info
+     */
     @GetMapping("/employees")
     public List<Employee> getEmployees() {
         List<Employee> employees = employeeService.retrieveEmployees();
         return employees;
     }
 
+    /**
+     * @param employeeId
+     * @return Single Employee info
+     */
     @GetMapping("/employees/{employeeId}")
     public Employee getEmployee(@PathVariable(name = "employeeId") Long employeeId) {
         return employeeService.getEmployee(employeeId);
     }
 
+    /**
+     * @param employee
+     */
     @PostMapping("/employees")
     public void saveEmployee(@RequestBody Employee employee) {
         employeeService.saveEmployee(employee);
         log.info("Employee Saved Successfully");
     }
 
+    /**
+     * @param employeeId
+     */
     @DeleteMapping("/employees/{employeeId}")
     public void deleteEmployee(@PathVariable(name = "employeeId") Long employeeId) {
         employeeService.deleteEmployee(employeeId);
         log.info("Employee Deleted Successfully");
     }
 
+    /**
+     * @param employee
+     * @param employeeId
+     */
     @PutMapping("/employees/{employeeId}")
     public void updateEmployee(@RequestBody Employee employee,
                                @PathVariable(name = "employeeId") Long employeeId) {
