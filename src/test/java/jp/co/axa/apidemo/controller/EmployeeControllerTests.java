@@ -28,7 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @Slf4j
 @DBRider
-public class ApiDemoApplicationTests {
+public class EmployeeControllerTests {
 
     private static final String GET_EMPLOYEE_ENDPOINT = "/api/v1/employees";
     private static final String EMPLOYEE_ENDPOINT_WITH_PATH_VARIABLE = "/api/v1/employees/1";
