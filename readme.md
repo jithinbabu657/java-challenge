@@ -20,7 +20,7 @@ Application (with the embedded H2 database) is ready to be used ! You can access
 - Click on /authenticate api to generate the JWT token.
 - Use the username : "admin" and password : "admin" in /authenticate post request and hit "Try it out!".
 - Copy the JWT token in the response and click on "Authorize" button on the right top of the page to add the JWT token.
-- Add the JWT token in the format "Bearer <JWT Token>"
+- Add the JWT token in the format "Bearer {JWT Token}"
 - Rest of the api can be tested by clicking on "Try it out!" with the same JWT key.
 
 #### Execute test case
