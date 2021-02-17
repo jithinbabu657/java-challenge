@@ -25,9 +25,3 @@ Application (with the embedded H2 database) is ready to be used ! You can access
 
 #### Execute test case
 - The test cases can be executed either individually or by executing `mvn package` .
-
-#### My experience in Java
-
-- I have 9 years experience in Java and I started to use Spring Boot from last 2 years
-- I have experience working with Spring Core and Spring MVC as well.
-- I am a quick learner and always ready to take new challenges.
